@@ -4,15 +4,15 @@ This is a Python script that uses Azure OpenAI's GPT-3.5-turbo language model to
 
 ## Dependencies
 
-This script requires the following dependencies:
+The script requires the following dependencies:
 
-- `openai`
 - `requests`
+- `openai`
 
 
 ## How to Use
 
-To use this script, you need to create a GitHub Actions workflow that runs the script. Here's an example workflow:
+To use this script, you need to create a GitHub Actions workflow that executes the script. Here's an example workflow:
 
 ```yaml
 name: Explain Code and Update README
@@ -79,7 +79,7 @@ Create a GitHub Secret (Settings > Secrets and variables > New repository secret
 
 ## How to Contribute
 
-If you find a bug or have a feature request, please open an issue on the GitHub repository. If you want to contribute code, please fork the repository and submit a pull request.
+If you find a bug or have a feature request, please open an issue on the GitHub repository. Pull requests are also welcome.
 
 ## References
 
