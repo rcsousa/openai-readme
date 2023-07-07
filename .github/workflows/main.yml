@@ -26,8 +26,8 @@ jobs:
         id: run_script
         run: |
           python app.py
-          echo "::set-output name=README::$(cat README.md)"
-          cat README.md
+          readme = $(cat README.md)
+          echo "content=$readme" >> "$GITHUB_OUTPUT"
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_API_BASE: ${{ secrets.OPENAI_API_BASE }}
@@ -40,7 +40,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "${{ steps.run_script.outputs.README }}" > README.md
+          echo "${{ steps.run_script.outputs.content }}" > README.md
           git config --global user.name ${{ secrets.GIT_USERNAME }}
           git config --global user.email ${{ secrets.GIT_EMAIL }}
           git add .
