@@ -23,11 +23,20 @@ jobs:
         
 
       - name: Run script
-        run: python app.py
+        id: run_script
+        run: |
+          python app.py
+          echo "::set-output name=README::$(cat README.md)"
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_API_BASE: ${{ secrets.OPENAI_API_BASE }}
-          GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
-          GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
-          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
           FILENAME: ${{ secrets.FILENAME }}
+
+      - name: Create new README.md file
+        run: |
+          echo "${{ steps.run_script.outputs.README }}" > README.md
+          git config --global user.name ${{ secrets.GIT_USERNAME }}
+          git config --global user.email ${{ secrets.GIT_EMAIL }}
+          git add .
+          git commit -m "Updating AI Generated README.md"
+          git push
