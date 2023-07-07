@@ -26,8 +26,7 @@ jobs:
         id: run_script
         run: |
           python app.py
-          readme = $(cat README.md)
-          echo "content=$readme" >> "$GITHUB_OUTPUT"
+          echo "content=$(cat README.md)" >> "$GITHUB_OUTPUT"
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_API_BASE: ${{ secrets.OPENAI_API_BASE }}
