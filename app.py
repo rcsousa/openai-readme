@@ -42,18 +42,6 @@ def main():
     with open('README.md', 'w') as file:
         file.write(explanation)
 
-#    # Configure git
-#    subprocess.run(['git', 'config', '--global', 'user.email', os.environ['GIT_EMAIL']])
-#    subprocess.run(['git', 'config', '--global', 'user.name', os.environ['GIT_USERNAME']])
-#
-#    # Add the README.md file to the git staging area
-#    subprocess.run(['git', 'add', 'README.md'])
-#
-#    # Commit the changes
-#    subprocess.run(['git', 'commit', '-m', 'Add explanation to README.md'])
-#
-#    # Push the changes to the repository
-#    subprocess.run(['git', 'push', 'origin', 'HEAD'])
 
 if __name__ == '__main__':
     main()
