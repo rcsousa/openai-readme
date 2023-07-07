@@ -1,0 +1,32 @@
+name: Explain Code and Update README
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  explain_code:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.10.6
+
+      - name: Install dependencies
+        run: pip install requests, openai
+        
+
+      - name: Run script
+        run: python app.py
+        env:
+          AZURE_OPENAI_KEY: ${{ secrets.AZURE_OPENAI_KEY }}
+          GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
+          GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
+          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+          FILENAME: ${{ secrets.FILENAME }}
