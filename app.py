@@ -16,13 +16,16 @@ def main():
     directory = os.environ.get('DIRECTORY', '.')
     print('Directory: ' + directory)
     
-    # List all python files in the directory, including subdirectories, but excluding hidden files and virtual environments
+    # List all python files in the directory, including subdirectories, but excluding hidden files, virtual environments and the ai-readme directory
     files = []
     for root, directories, filenames in os.walk(directory):
-        for filename in filenames:
-            if filename.endswith('.py') and not filename.startswith('.') and not 'venv' in root:
-                files.append(os.path.join(root, filename))
-                
+        if  'ai-readme' not in root:
+            for filename in filenames:
+                if filename.endswith('.py') and not filename.startswith('.') and not 'venv' in root:
+                    files.append(os.path.join(root, filename))
+
+    print('Files: ' + str(files))
+
     for filename in files:
 
         # Read the content of the file
