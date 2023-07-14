@@ -6,7 +6,6 @@ This is a Python script that uses Azure OpenAI's GPT-3.5-turbo language model to
 
 The script requires the following dependencies:
 
-- `requests`
 - `openai`
 
 
