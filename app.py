@@ -24,7 +24,7 @@ def main():
                 if filename.endswith('.py') and not filename.startswith('.') and not 'venv' in root:
                     files.append(os.path.join(root, filename))
 
-    print('Files: ' + str(files))
+    print('Files do be analyzed: ' + str(files))
 
     for filename in files:
 
@@ -58,11 +58,15 @@ def main():
             if filename.endswith('.md'):
                 files.append(os.path.join(root, filename))
 
+    print('Files on /docs: ' + str(files))
+
     # Combine all *.md files into a single variable
     readme = ''
     for filename in files:
         with open(filename, 'r') as file:
             readme += file.read() + '\n\n'
+
+    print(readme)
 
     # Call OpenAI's GPT-35-TURBO API to generate a README.md file that is the summary of all the *.md files in the docs directory and invite the reader to contribute to the project
     response = openai.ChatCompletion.create(
