@@ -19,7 +19,7 @@ name: Explain Code and Update README
 on:
   push:
     branches:
-      - main
+      - <<replace with your branch name (ie. main, master)>>
 
 jobs:
   explain_code:
