@@ -20,7 +20,7 @@ def main():
     files = []
     for root, directories, filenames in os.walk(directory):
         for filename in filenames:
-            if filename.endswith('.py') and not filename.startswith('.') and not 'venv' and not 'ai-readme' in root:
+            if filename.endswith('.py') and not filename.startswith('.') and not 'venv' in root:
                 files.append(os.path.join(root, filename))
                 
     for filename in files:
