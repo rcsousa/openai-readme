@@ -67,14 +67,15 @@ jobs:
           OPENAI_API_BASE: ${{ secrets.OPENAI_API_BASE }}
           GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
           GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
-          FILENAME: <<replace with the file name for your program>>
+          DIRECTORT: <<replace with the folder of your code (ie . for the /)>>
 
-      - name: Create new README.md file
+      - name: Create /docs files
         run: |
           git config --global user.name ${{ secrets.GIT_USERNAME }}
           git config --global user.email ${{ secrets.GIT_EMAIL }}
+          git add docs/*.md
           git add README.md
-          git commit -m "Updating AI Generated README.md"
+          git commit -m "Updating AI Generated Documentation"
           git push
 
 ```
