@@ -20,12 +20,9 @@ def main():
     files = []
     for root, directories, filenames in os.walk(directory):
         for filename in filenames:
-            if filename.endswith('.py') and not filename.startswith('.') and not 'venv' in root:
+            if filename.endswith('.py') and not filename.startswith('.') and not 'venv' and not 'ai-readme' in root:
                 files.append(os.path.join(root, filename))
                 
-    # Get the filename from the environment variables
-    # filename = os.environ['FILENAME']
-
     for filename in files:
 
         # Read the content of the file
